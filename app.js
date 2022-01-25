@@ -17,9 +17,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // you declare this statement to use css./images on the web app
 app.use(express.static("public"));
 
-app.listen(port, () => {
+
+
+app.listen(3000, () => {
   console.log(`Server is UP⬆️ on port`);
 });
+
+
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/signup.html");
@@ -44,12 +48,16 @@ app.post("/", (req, res) => {
   };
   const jsonData = JSON.stringify(data);
 
+
+
+
   const options = {
     method: "POST",
-    auth:`user:${process.env.AUTH}-${process.env.DC}`
+    auth:`user:${process.env.AUTH}-us20`
   };
 
-  let url = `https://${process.env.DC}.api.mailchimp.com/3.0/lists/7bd83ce600`
+  let url = `https://us20.api.mailchimp.com/3.0/lists/7bd83ce600`
+
 
   const request = https.request(url, options, (response) => {
     console.log("Status: " + response.statusCode);
@@ -66,6 +74,7 @@ app.post("/", (req, res) => {
   request.write(jsonData);
   request.end();
 });
+
 
 //WHen redirected to error Page
 app.post("/error.html", (req, res) => {
