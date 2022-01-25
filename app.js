@@ -19,7 +19,7 @@ app.use(express.static("public"));
 
 
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`Server is UP⬆️ on port`);
 });
 
