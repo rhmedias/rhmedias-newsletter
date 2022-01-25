@@ -1,13 +1,4 @@
-// module.exports = apiKey;
-//
-// function apiKey(){
-//
-//   const options = {
-//     method: 'POST',
-//     'auth': 'user:cafd43bbcb5099977c0c271e64bec2a5-us20'
-//   }
-//   return options;
-// }
+
 
 module.exports = apiUrl;
 

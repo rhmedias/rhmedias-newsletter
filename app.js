@@ -1,10 +1,10 @@
 "use strict";
+require('dotenv').config()
 const express = require("express");
 const request = require("request");
 const bodyParser = require("body-parser");
 const https = require("https");
-//const apiKey = require(__dirname +'/apiKey.js');
-const apiUrl = require(__dirname + "/apiKey.js");
+// const apiUrl = require(__dirname + "/apiKey.js");
 
 const app = express();
 //const port = 3000
@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // you declare this statement to use css./images on the web app
 app.use(express.static("public"));
 
-app.listen(port, () => {
-  console.log(`Server is UP⬆️ on port: ${port}`);
+app.listen(3000, () => {
+  console.log(`Server is UP⬆️ on port`);
 });
 
 app.get("/", (req, res) => {
@@ -43,13 +43,13 @@ app.post("/", (req, res) => {
     ],
   };
   const jsonData = JSON.stringify(data);
-  
+
   const options = {
     method: "POST",
-    auth: "user:cafd43bbcb5099977c0c271e64bec2a5-us20",
+    auth:`user:${process.env.AUTH}-${process.env.DC}`
   };
-  // let options = apiKey();
-  let url = apiUrl();
+
+  let url = `https://${process.env.DC}.api.mailchimp.com/3.0/lists/7bd83ce600`
 
   const request = https.request(url, options, (response) => {
     console.log("Status: " + response.statusCode);
