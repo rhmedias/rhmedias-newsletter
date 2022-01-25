@@ -1,13 +1,12 @@
 {
   "name": "newsletter",
-  "homepage": "https://rhmedias.github.io/newsletter-rhmedias",
+  
   "version": "1.0.0",
   "description": "Email Marketing page",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+
   },
   "author": "Kingsley Omokwe",
   "license": "ISC",
