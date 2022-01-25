@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // you declare this statement to use css./images on the web app
 app.use(express.static("public"));
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`Server is UP⬆️ on port`);
 });
 
